@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       active: 0,
+      activeThumb: "active",
       images: [
         {
           image: "img/01.webp",
@@ -32,6 +33,9 @@ createApp({
         },
       ],
     };
+  },
+  created(){
+      setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
   },
   methods: {
     
