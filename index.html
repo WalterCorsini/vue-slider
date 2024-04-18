@@ -54,6 +54,7 @@
                       </p>
                     </div>
                   </div>
+                  
                   <!-- /immagine -->
 
                 </div>
@@ -68,7 +69,7 @@
                     <span class="my-next-hook"></span>
                   </div>
                   <!-- thumbnails  -->
-                  <img @click="active = i" v-for="(curImage,i) in images" class="img-fluid my-thumbnail"
+                  <img @click="active = i" v-for="(curImage,i) in images" :class="{'active': i === active}" class="img-fluid my-thumbnail"
                   :src="curImage.image" :alt="curImage.title">
 
 

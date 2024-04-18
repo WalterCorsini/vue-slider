@@ -61,6 +61,6 @@ createApp({
       } else{
         this.invert = setInterval(() => {this.active === 0 ? this.active = 4 : this.active--},2000);
       }
-    }
-  },
+    },
+  }
 }).mount("#app");
