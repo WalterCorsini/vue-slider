@@ -1,8 +1,11 @@
+
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
+      start: null,
+      invert: null,
       active: 0,
       activeThumb: "active",
       images: [
@@ -34,10 +37,19 @@ createApp({
       ],
     };
   },
-  created(){
-      setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
-  },
+  created(){    
+        this.start = setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
+    },
   methods: {
-    
+    startInterval: function(){
+      clearInterval(this.invert);
+      this.invert = null;
+      if(this.start !== null){
+        clearInterval(this.start)
+        this.start = null;
+      } else{
+        this.start = setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
+      }
+    }
   },
 }).mount("#app");
