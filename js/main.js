@@ -50,6 +50,17 @@ createApp({
       } else{
         this.start = setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
       }
+    },
+
+    invertInterval: function(){
+      clearInterval(this.start);
+      this.start = null;
+      if(this.invert !== null){
+        clearInterval(this.invert)
+        this.invert = null;
+      } else{
+        this.invert = setInterval(() => {this.active === 0 ? this.active = 4 : this.active--},2000);
+      }
     }
   },
 }).mount("#app");
