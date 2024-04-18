@@ -60,23 +60,23 @@
                 </div>
                 <div class="my-thumbnails position-relative">
                   <!-- prev -->
-                  <div @click="active === 0 ? active = 4 : active--" class="my-previous position-absolute">
+                  <div @click="active === 0 ? active = 4 : active--,invertInterval()" class="my-previous position-absolute">
                     <span class="my-prev-hook"></span>
                   </div>
                   <!-- next -->
-                  <div @click="active === 4 ? active = 0 : active++"
+                  <div @click="active === 4 ? active = 0 : active++,startInterval()"
                     class="my-next position-absolute">
                     <span class="my-next-hook"></span>
                   </div>
-                  <!-- thumbnails  -->
-                  <img @click="active = i" v-for="(curImage,i) in images" :class="{'active': i === active}" class="img-fluid my-thumbnail"
+                  <!-- thumbnails  -->                                    <!-- assign dynamic class "active" when variable active === i-->
+                  <img @click="active = i" v-for="(curImage,i) in images" :class="{'active': active === i}" class="img-fluid my-thumbnail"
                   :src="curImage.image" :alt="curImage.title">
 
 
                 </div>
               </div>
             </div>
-
+            <!--  button start , invert and stop -->
             <div class="col-12 p-3" id="my-after-carousel">
               <button @click="invertInterval" id="my-order-button" class="btn btn-primary">
                 Inverti l'ordine di scorrimento
