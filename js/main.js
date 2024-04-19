@@ -48,7 +48,7 @@ createApp({
         clearInterval(this.start)
         this.start = null;
       } else{
-        this.start = setInterval(() => { this.active === 4 ? this.active = 0 : this.active++},2000);
+        this.start = setInterval(() => { this.active === this.images.length-1 ? this.active = 0 : this.active++},2000);
       }
     },
 
